@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">64-bit Calc</string>
+    <string name="notation_mode">
+        <item>Decimal</item>
+        <item>Binary</item>
+        <item>Hexidecimal</item>
+        <item>Octal</item>
+    </string>
+</resources>

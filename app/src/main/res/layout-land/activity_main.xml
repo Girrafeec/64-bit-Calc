@@ -1,0 +1,704 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:id="@+id/parentLinLay">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/ioLinLay"
+        android:background="@drawable/layout_background"
+        android:layout_weight="4">
+
+        <HorizontalScrollView
+            android:id="@+id/inputScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:scrollbars="none"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/inputTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:text="0"
+                android:textColor="@color/gray_btn"
+                android:textSize="30dp"
+                android:scrollHorizontally="true"
+                android:cursorVisible="false"
+                android:background="@color/transparent"
+                android:textColorHighlight="@color/hilight_orange"/>
+
+        </HorizontalScrollView>
+
+        <HorizontalScrollView
+            android:id="@+id/outputScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:scrollbars="none"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textColor="@color/gray_btn"
+                android:text=""
+                android:layout_gravity="right"
+                android:textSize="40dp"
+                android:id="@+id/outputTxt"
+                android:cursorVisible="false"
+                android:background="@color/transparent"/>
+
+        </HorizontalScrollView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/modeButtonsLinLay">
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/notationModeRadioGroup">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:textSize="20dp"
+                    android:text="QWORD"
+                    android:layout_weight="1"
+                    android:background="@drawable/action_button_selector"
+                    android:textColor="@color/gray_btn"
+                    android:id="@+id/dataSizeModeBtn"
+                    android:layout_gravity="center_horizontal"
+                    android:textAlignment="center"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:id="@+id/binaryRadioBtn"
+                    android:text="BIN"
+                    android:textSize="20dp"
+                    android:textColor="@drawable/radio_button_text"
+                    android:background="@drawable/radio_selector"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_horizontal"
+                    android:textAlignment="center"
+                    android:clickable="true"
+                    android:button="@android:color/transparent"
+                    android:typeface="monospace"/>
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:id="@+id/octalRadioBtn"
+                    android:text="OCT"
+                    android:textSize="20dp"
+                    android:textColor="@drawable/radio_button_text"
+                    android:background="@drawable/radio_selector"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_horizontal"
+                    android:textAlignment="center"
+                    android:clickable="true"
+                    android:button="@android:color/transparent"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:id="@+id/decimalRadioBtn"
+                    android:text="DEC"
+                    android:textSize="20dp"
+                    android:textColor="@drawable/radio_button_text"
+                    android:background="@drawable/radio_selector"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_horizontal"
+                    android:textAlignment="center"
+                    android:checked="true"
+                    android:button="@android:color/transparent"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+                <RadioButton
+                    android:id="@+id/hexidecimalRadioBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/radio_selector"
+                    android:button="@android:color/transparent"
+                    android:clickable="true"
+                    android:text="HEX"
+                    android:layout_gravity="center_horizontal"
+                    android:textAlignment="center"
+                    android:textColor="@drawable/radio_button_text"
+                    android:textSize="20dp"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/buttonsLinLay"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:id="@+id/firstRowLinLay"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/leftBracketBtn"
+                    android:text="("
+                    android:textSize="25dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/action_button_selector"
+                    android:textColor="@drawable/action_button_text"
+                    android:clickable="true"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/rightBracketBtn"
+                    android:text=")"
+                    android:textSize="25dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/action_button_selector"
+                    android:textColor="@drawable/action_button_text"
+                    android:clickable="true"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+                <Button
+                    android:id="@+id/multipleBtn"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/action_button_selector"
+                    android:clickable="true"
+                    android:text="×"
+                    android:textColor="@drawable/action_button_text"
+                    android:textSize="25dp"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/modBtn"
+                    android:text="%"
+                    android:textSize="25dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/action_button_selector"
+                    android:textColor="@drawable/action_button_text"
+                    android:clickable="true"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+                <Button
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/divisionBtn"
+                    android:text="÷"
+                    android:textSize="25dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/action_button_selector"
+                    android:textColor="@drawable/action_button_text"
+                    android:clickable="true"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/clearBtn"
+                    android:text="c"
+                    android:textSize="25dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/action_button_selector"
+                    android:textColor="@drawable/action_button_text"
+                    android:clickable="true"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+                <ImageButton
+                    android:id="@+id/delSymbolBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:background="@drawable/action_button_selector"
+                    android:clickable="true"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"
+                    android:src="@drawable/ic_backspace"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:id="@+id/secondRowFColumnLinLay"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/eBtn"
+                    android:text="E"
+                    android:textSize="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/number_button_selector"
+                    android:textColor="@drawable/number_button_text"
+                    android:clickable="true"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/fBtn"
+                    android:text="F"
+                    android:textSize="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/number_button_selector"
+                    android:textColor="@drawable/number_button_text"
+                    android:clickable="true"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+                <Button
+                    android:id="@+id/sevenBtn"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/number_button_selector"
+                    android:clickable="true"
+                    android:text="7"
+                    android:textColor="@drawable/number_button_text"
+                    android:textSize="20dp"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/eightBtn"
+                    android:text="8"
+                    android:textSize="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/number_button_selector"
+                    android:textColor="@drawable/number_button_text"
+                    android:clickable="true"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+                <Button
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/nineBtn"
+                    android:text="9"
+                    android:textSize="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/number_button_selector"
+                    android:textColor="@drawable/number_button_text"
+                    android:clickable="true"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/logicalAndBtn"
+                    android:textSize="20dp"
+                    android:text="AND"
+                    android:layout_weight="1"
+                    android:background="@drawable/action_button_selector"
+                    android:textColor="@drawable/action_button_text"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/logicalNandBtn"
+                    android:text="NAND"
+                    android:textSize="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/action_button_selector"
+                    android:textColor="@drawable/action_button_text"
+                    android:clickable="true"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/plusBtn"
+                    android:text="+"
+                    android:textSize="25dp"
+                    android:layout_weight="3"
+                    android:background="@drawable/action_button_selector"
+                    android:textColor="@drawable/action_button_text"
+                    android:clickable="true"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:id="@+id/thirdRowLinLay"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/cBtn"
+                    android:text="C"
+                    android:textSize="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/number_button_selector"
+                    android:textColor="@drawable/number_button_text"
+                    android:clickable="true"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/dBtn"
+                    android:text="D"
+                    android:textSize="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/number_button_selector"
+                    android:textColor="@drawable/number_button_text"
+                    android:clickable="true"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+                <Button
+                    android:id="@+id/fourBtn"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/number_button_selector"
+                    android:clickable="true"
+                    android:text="4"
+                    android:textColor="@drawable/number_button_text"
+                    android:textSize="20dp"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/fiveBtn"
+                    android:text="5"
+                    android:textSize="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/number_button_selector"
+                    android:textColor="@drawable/number_button_text"
+                    android:clickable="true"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+                <Button
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/sixBtn"
+                    android:text="6"
+                    android:textSize="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/number_button_selector"
+                    android:textColor="@drawable/number_button_text"
+                    android:clickable="true"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/logicalOrBtn"
+                    android:text="OR"
+                    android:textSize="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/action_button_selector"
+                    android:textColor="@drawable/action_button_text"
+                    android:clickable="true"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/logicalNorBtn"
+                    android:text="NOR"
+                    android:textSize="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/action_button_selector"
+                    android:textColor="@drawable/action_button_text"
+                    android:clickable="true"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/miplusBtn"
+                    android:text="-"
+                    android:textSize="25dp"
+                    android:layout_weight="3"
+                    android:background="@drawable/action_button_selector"
+                    android:textColor="@drawable/action_button_text"
+                    android:clickable="true"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:id="@+id/fourthRowLinLay"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/aBtn"
+                    android:text="A"
+                    android:textSize="20dp"
+                    android:background="@drawable/number_button_selector"
+                    android:textColor="@drawable/number_button_text"
+                    android:clickable="true"
+                    android:layout_weight="1"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/bBtn"
+                    android:text="B"
+                    android:textSize="20dp"
+                    android:background="@drawable/number_button_selector"
+                    android:textColor="@drawable/number_button_text"
+                    android:clickable="true"
+                    android:layout_weight="1"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+                <Button
+                    android:id="@+id/oneBtn"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/number_button_selector"
+                    android:clickable="true"
+                    android:stateListAnimator="@null"
+                    android:text="1"
+                    android:textColor="@drawable/number_button_text"
+                    android:textSize="20dp"
+                    android:typeface="monospace" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/twoBtn"
+                    android:text="2"
+                    android:textSize="20dp"
+                    android:background="@drawable/number_button_selector"
+                    android:textColor="@drawable/number_button_text"
+                    android:clickable="true"
+                    android:layout_weight="1"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+                <Button
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/threeBtn"
+                    android:text="3"
+                    android:textSize="20dp"
+                    android:background="@drawable/number_button_selector"
+                    android:textColor="@drawable/number_button_text"
+                    android:clickable="true"
+                    android:layout_weight="1"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/logicalNotBtn"
+                    android:text="NOT"
+                    android:textSize="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/action_button_selector"
+                    android:textColor="@drawable/action_button_text"
+                    android:clickable="true"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/logicalXnorBtn"
+                    android:text="XNOR"
+                    android:textSize="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/action_button_selector"
+                    android:textColor="@drawable/action_button_text"
+                    android:clickable="true"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/randomizeBtn"
+                    android:text="RAND"
+                    android:textSize="20dp"
+                    android:background="@drawable/action_button_selector"
+                    android:textColor="@drawable/action_button_text"
+                    android:clickable="true"
+                    android:layout_weight="3"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:id="@+id/fifthRowLinLay"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+                <Button
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/reverseSignBtn"
+                    android:text="+/-"
+                    android:textSize="20dp"
+                    android:layout_weight="3"
+                    android:textColor="@drawable/action_button_text"
+                    android:background="@drawable/action_button_selector"
+                    android:clickable="true"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/zeroBtn"
+                    android:text="0"
+                    android:textSize="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/number_button_selector"
+                    android:textColor="@drawable/number_button_text"
+                    android:clickable="true"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+                <Button
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/pointBtn"
+                    android:text="."
+                    android:textSize="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/number_button_selector"
+                    android:textColor="@color/number_button_unclickable_gray"
+                    android:clickable="false"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/logicalXorBtn"
+                    android:text="XOR"
+                    android:textSize="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/action_button_selector"
+                    android:textColor="@drawable/action_button_text"
+                    android:clickable="true"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/logicalImplyBtn"
+                    android:text="IMPL"
+                    android:textSize="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/action_button_selector"
+                    android:textColor="@drawable/action_button_text"
+                    android:clickable="true"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/equalBtn"
+                    android:text="="
+                    android:textSize="25dp"
+                    android:background="@drawable/equals_button_selector"
+                    android:textColor="@color/white"
+                    android:clickable="true"
+                    android:layout_weight="3"
+                    android:typeface="monospace"
+                    android:stateListAnimator="@null"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
